@@ -106,11 +106,15 @@ function updateClock(){
 setInterval(updateClock,1000);
 updateClock();
 
-function updateScreen(){
+async function updateScreen(){
 
- let total = 238;
- let price = 42;
- let kvar = 62;
+  const response = await fetch("https://script.google.com/macros/s/AKfycbz3ZKEe9C0M7TpyrlWdsOW2vPKYmmeY1awa5_DCue8IpRqf6j8ippRB1T_vxtDIMZRt/exec__;!!EyGG_rL3!Eaeo1cGd_YuL1LQP6C5PinMmvw8EkexGcbLTZXN9yG7s9dd7h2HAFA2qmaYpCq4sZSmfqDIX0nSz6m6_q81ro6X3$");
+  const data = await response.json();
+
+  let total = data.total;
+  let price = data.pris;
+  let kvar = data.kvar;
+
 
  document.getElementById("total").innerHTML = total + " ST";
  document.getElementById("price").innerHTML = price + " KR";
@@ -133,3 +137,4 @@ updateScreen();
 
 </body>
 </html>
+

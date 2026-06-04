@@ -108,8 +108,8 @@ updateClock();
 
 async function updateScreen(){
 
-  const response = await fetch("https://script.google.com/macros/s/AKfycbz3ZKEe9C0M7TpyrlWdsOW2vPKYmmeY1awa5_DCue8IpRqf6j8ippRB1T_vxtDIMZRt/exec__;Eaeo1cGd_YuL1LQP6C5PinMmvw8EkexGcbLTZXN9yG7s9dd7h2HAFA2qmaYpCq4sZSmfqDIX0nSz6m6_q81ro6X3$");
-  const data = await response.json();
+const response = await fetch("https://script.google.com/macros/s/AKfycbz3ZKEe9C0M7TpyrlWdsOW2vPKYmmeY1awa5_DCue8IpRqf6j8ippRB1T_vxtDIMZRt/exec");
+const data = await response.json();
 
   let total = data.total;
   let price = data.pris;

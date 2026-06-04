@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folkets Ölmätare™</title>
+
+<style>
+body{
+    margin:0;
+    background:#102019;
+    color:white;
+    font-family:Arial, sans-serif;
+    text-align:center;
+}
+
+.header{
+    padding:30px;
+    font-size:60px;
+    font-weight:bold;
+}
+
+.sub{
+    font-size:24px;
+    opacity:0.8;
+}
+
+.liters{
+    font-size:140px;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+.price{
+    font-size:180px;
+    color:#d4af37;
+    font-weight:bold;
+}
+
+.next{
+    font-size:40px;
+    margin-top:20px;
+}
+
+.bar{
+    width:80%;
+    height:40px;
+    background:#333;
+    margin:30px auto;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:#d4af37;
+    width:0%;
+}
+
+.clock{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:28px;
+}
+
+.footer{
+    margin-top:40px;
+    font-size:22px;
+    opacity:0.8;
+}
+</style>
+
+</head>
+<body>
+
+<div class="clock" id="clock"></div>
+
+<div class="header">🍺 FOLKETS ÖLMÄTARE™</div>
+
+<div class="sub">SÅLDA STARKÖL IDAG</div>
+
+<div class="liters" id="total">0</div>
+
+<div class="sub">PRIS JUST NU</div>
+
+<div class="price" id="price">49 KR</div>
+
+<div class="next" id="next">0 kvar till nästa nivå</div>
+
+<div class="bar">
+<div class="fill" id="fill"></div>
+</div>
+
+<div class="footer">
+49 kr → 46 kr → 42 kr → 39 kr
+</div>
+
+<script>
+
+function updateClock(){
+ document.getElementById("clock").innerHTML =
+ new Date().toLocaleTimeString('sv-SE');
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+function updateScreen(){
+
+ let total = 238;
+ let price = 42;
+ let kvar = 62;
+
+ document.getElementById("total").innerHTML = total + " ST";
+ document.getElementById("price").innerHTML = price + " KR";
+ document.getElementById("next").innerHTML =
+ kvar + " öl kvar till 39 kr";
+
+ let progress = (total / 300) * 100;
+
+ if(progress > 100){
+     progress = 100;
+ }
+
+ document.getElementById("fill").style.width =
+ progress + "%";
+}
+
+updateScreen();
+
+</script>
+
+</body>
+</html>

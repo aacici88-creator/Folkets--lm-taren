@@ -168,10 +168,28 @@ const data = await response.json();
 
  document.getElementById("total").innerHTML = total + " ST";
  document.getElementById("price").innerHTML = price + " KR";
- document.getElementById("next").innerHTML =
- kvar + " öl kvar till 39 kr";
+document.getElementById("next").innerHTML =
+kvar + " öl kvar till 39 kr";
 
- let progress = (total / 300) * 100;
+document.querySelectorAll(".price-steps div").forEach(el => {
+    el.classList.remove("active-price");
+});
+
+if(price == 49){
+    document.querySelector(".price-steps div:nth-child(2)").classList.add("active-price");
+}
+else if(price == 46){
+    document.querySelector(".price-steps div:nth-child(3)").classList.add("active-price");
+}
+else if(price == 42){
+    document.querySelector(".price-steps div:nth-child(4)").classList.add("active-price");
+}
+else if(price == 39){
+    document.querySelector(".price-steps div:nth-child(5)").classList.add("active-price");
+}
+
+let progress = (total / 300) * 100;
+
 
  if(progress > 100){
      progress = 100;

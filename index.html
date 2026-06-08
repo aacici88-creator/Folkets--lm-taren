@@ -124,7 +124,7 @@ background-attachment:fixed;
 <div>49 kr</div>
 <div>46 kr</div>
 <div>42 kr</div>
-<div class="active-price">39 kr ◄</div>
+<div>39 kr</div>
 
 
 
@@ -174,7 +174,7 @@ const data = await response.json();
  document.getElementById("price").innerHTML = price + " KR";
 document.getElementById("next").innerHTML =
 kvar + " öl kvar till 39 kr";
-let progress = (total / 300) * 100;
+
     
 document.querySelectorAll(".price-steps div").forEach(el => {
     el.classList.remove("active-price");
